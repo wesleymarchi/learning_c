@@ -12,7 +12,7 @@ int main() {
     printf("Insira uma nota: \n");
     scanf("%d", &nota);
 
-    nota >= 70 ? printf("Aprovado\n") : printf("Reprovado\n");
+    nota >= 70 ? printf("Aprovado\n") : printf("Reprovado\n"); // Operador ternário
 
     return 0;
 }
