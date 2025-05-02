@@ -5,7 +5,7 @@
 void toUpper(char *);
 
 int main() {
-    char string[] = "123";
+    char string[] = "watchmen";
 
     printf("A string antes da conversao: %s\n", string);
 
@@ -21,6 +21,6 @@ void toUpper(char *s) {
         if (*s >= 'a' && *s <= 'z')
             *s -= 32; // Converte para letra maiuscula ASCII: qual a diferença na tabela ASCII entre as colunas?
 
-        ++s; // Incremento para o próximo caractere
+        ++s; // Aritmética de ponteiros: incremento para o próximo caractere
     }
 }
