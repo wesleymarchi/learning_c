@@ -22,7 +22,7 @@ int main() {
 
         printf("Nome: ");
         fgets(a.nome, sizeof(a.nome), stdin);
-        a.nome[strcspn(a.nome, "\n")] = '\0'; // Remove o '\n' do final
+        a.nome[strcspn(a.nome, "\n")] = '\0'; // Remove o '\n' do final, pois fgets() o inclui
 
         printf("Idade: ");
         scanf("%d", &a.idade);

@@ -31,7 +31,7 @@ int main() {
 
   // Loop de leitura segura usando scanf
   while (scanf("%d %39s %f", &conta, nome, &saldo) == 3) {
-    fprintf(cfPtr, "%d %s %.2f\n", conta, nome, saldo);  // semelhante ao printf, mas recebe um ponteiro para arq
+    fprintf(cfPtr, "%d %s %.2f\n", conta, nome, saldo);  // Recebe um ponteiro para arq, escreve os dados formatado
     printf("? ");
   }
 

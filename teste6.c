@@ -18,7 +18,7 @@ int main() {
     }
 
     printf("Digite o nome para buscar: ");
-    scanf(" %[^\n]", busca);
+    scanf(" %[^\n]", busca); // Lê a string até encontrar \n
 
     while (fscanf(fp, "%s %d", a.nome, &a.idade) != EOF) {
         if (strcmp(a.nome, busca) == 0) {

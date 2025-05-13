@@ -17,9 +17,11 @@ int main() {
     Aluno alunos[3];
     for (int i = 0; i < 3; i++) {
         printf("Nome: ");
-        scanf(" %[^\n]", alunos[i].nome);
+        scanf(" %[^\n]", alunos[i].nome);  // Lê a string até encontrar \n
+
         printf("Nota 1: ");
         scanf("%f", &alunos[i].nota1);
+
         printf("Nota 2: ");
         scanf("%f", &alunos[i].nota2);
     }

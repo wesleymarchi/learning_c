@@ -13,12 +13,16 @@ int main() {
 
     for (i = 0; i < 5; i++) {
         printf("\nProduto %d\n", i + 1);
+
         printf("Nome: ");
-        scanf(" %[^\n]", produtos[i].nome);
+        scanf(" %[^\n]", produtos[i].nome);  // Lê a string até encontrar \n
+
         printf("Preco: ");
         scanf("%f", &produtos[i].preco);
+
         printf("Quantidade: ");
         scanf("%d", &produtos[i].quantidade);
+
         soma += produtos[i].preco;
         if (produtos[i].preco > produtos[maiorIndex].preco)
             maiorIndex = i;
