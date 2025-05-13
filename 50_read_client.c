@@ -1,4 +1,4 @@
-/* Buscando dados no arquivo */
+/* Buscando dados no arquivo de acesso sequencial */
 
 #include <stdio.h>
 #include <string.h>
@@ -12,7 +12,7 @@ int main() {
     printf("Qual conta deseja buscar?\n");
     scanf("%d", &busca);
 
-    if ((cfPtr = fopen("clientes.dat", "r")) == NULL) {
+    if ((cfPtr = fopen("clientes.dat", "r")) == NULL) {  // Tenta abrir o arquivo
         printf("O arquivo nao pode ser aberto.\n");
         return 1;
     } else {

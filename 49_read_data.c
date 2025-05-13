@@ -1,4 +1,4 @@
-/* Ler dados de um arquivo
+/* Ler dados de um arquivo de acesso sequencial
  * r: abre para leitura
  * w: cria arquivo para gravação
  * a: abre ou cria um arquivo para gravação no final do arquivo
