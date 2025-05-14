@@ -1,4 +1,4 @@
-/* Lê sequencialmente um arquivo de acesso aleatório, atualiza os dados, cria novos dados e exclui */
+/* Lê sequencialmente um arquivo de acesso aleatório (binario), atualiza os dados, cria novos dados e exclui */
 
 #include <stdio.h>
 

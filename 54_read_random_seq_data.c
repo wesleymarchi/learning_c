@@ -18,6 +18,11 @@ int main() {
     } else {
         printf("%-6s%-16s%-11s%10s\n", "Conta", "Nome", "Sobrenome", "Saldo");
         while (!feof(cfPtr)) {
+            // Lê dados binários
+            // endereço onde os dados lidos serão armazenados;
+            // sizeof para identificar o tamanho de cada bloco
+            // 1 representa um bloco
+            // cfPtr ponteiro para o arquivo aberto no modo leitura (r)
             fread(&cliente, sizeof(struct dadosCliente), 1, cfPtr);
 
             if (cliente.numConta != 0)

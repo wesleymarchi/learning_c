@@ -17,8 +17,9 @@ int main() {
     if ((cfPtr = fopen("credito.dat", "w")) == NULL) {
         printf("O arquivo nao pode ser aberto\n");
     } else {
-        for (i = 1; i <= 100; i++)
-            // Faz com que a estrutura clienteNulo (com tamanho x) seja gravada no arquivo apontado por cfPtr
+        for (i = 1; i <= 100; i++)  // 100 registros de clientes: 100 * sizeof(struct dadosCliente)
+            // Faz com que a estrutura clienteNulo (com tamanho x) seja gravada no arquivo apontado por cfPtr em binário
+            // cada bloco tem o tamanho de dadosCliente
             fwrite(&clienteNulo, sizeof(struct dadosCliente), 1, cfPtr);
 
         fclose(cfPtr);
