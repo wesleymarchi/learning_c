@@ -60,6 +60,7 @@ int main() {
     return 0;
 }
 
+// Show menu
 int showMenu(void) {
     int op;
 

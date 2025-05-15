@@ -19,7 +19,7 @@ int main() {
     } else {
         for (i = 1; i <= 100; i++)  // 100 registros de clientes: 100 * sizeof(struct dadosCliente)
             // Faz com que a estrutura clienteNulo (com tamanho x) seja gravada no arquivo apontado por cfPtr em binário
-            // cada bloco tem o tamanho de dadosCliente
+            // cada bloco tem o tamanho de dadosCliente; 1 representa um bloco; ponteiro
             fwrite(&clienteNulo, sizeof(struct dadosCliente), 1, cfPtr);
 
         fclose(cfPtr);
