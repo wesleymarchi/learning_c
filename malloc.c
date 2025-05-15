@@ -9,12 +9,12 @@ int main() {
     scanf("%d", &n);
 
     // Aloca memória dinamicamente para n inteiros
-    // Como malloc retorna um void* (ponteiro genérico), precisamos dizer ao compilador que queremos um int* (ponteiro para inteiro).
+    // malloc retorna um void* (ponteiro genérico), precisamos dizer ao compilador que queremos um int* (ponteiro para inteiro).
     vetor = (int *)malloc(n * sizeof(int));
 
     // Verifica se a alocação foi bem-sucedida
     if (vetor == NULL) {
-        printf("Erro de alocação de memória!\n");
+        printf("Erro de alocacao de memoria!\n");
         return 1;
     }
 
