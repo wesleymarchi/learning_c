@@ -7,8 +7,8 @@
 #define ENB 5
 
 // --- Sensor Ultrassônico ---
-#define TRIG 7
-#define ECHO 6
+#define TRIG 3
+#define ECHO 4
 
 // --- Sensores IR ---
 #define IR_ESQ A0
