@@ -1,23 +1,26 @@
+/* Manipula uma lista de caracteres com opções de inserir e remover
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 
 // Estrutura auto-referenciada
-struct listaNo {
+struct listNode {
     char data;
-    struct listaNo *prox;
+    struct listNode *prox;
 };
 
-typedef struct listaNo *LISTA;
-typedef LISTA *LISTAPTR;
+typedef struct listNode LISTNODE;
+typedef LISTNODE *LISTNODEPTR;
 
-void insert(LISTAPTR, char);
-char delete(LISTAPTR, char);
-int isEmpty(LISTA);
-void printLista(LISTA);
+void insert(LISTNODEPTR *, char);
+char delete(LISTNODEPTR *, char);
+int isEmpty(LISTNODEPTR); // Chamada "função predicada", não altera a lista
+void printList(LISTNODEPTR);
 void showMenu(void);
 
 int main() {
-    LISTA startPtr = NULL;
+    LISTNODEPTR startPtr = NULL;
     int op;
     char item;
 
@@ -31,9 +34,8 @@ int main() {
                 printf("Insira um caractere: ");
                 scanf(" %c", &item); // espaço antes de %c para ignorar '\n'
                 insert(&startPtr, item);
-                printLista(startPtr);
+                printList(startPtr);
                 break;
-
             case 2:
                 if (!isEmpty(startPtr)) {
                     printf("Insira o caractere para remocao: ");
@@ -41,7 +43,7 @@ int main() {
 
                     if (delete(&startPtr, item)) {
                         printf("%c removido.\n", item);
-                        printLista(startPtr);
+                        printList(startPtr);
                     } else {
                         printf("%c nao encontrado!\n\n", item);
                     }
@@ -49,7 +51,6 @@ int main() {
                     printf("A lista esta vazia.\n\n");
                 }
                 break;
-
             default:
                 printf("Escolha invalida!\n\n");
                 showMenu();
@@ -70,24 +71,30 @@ void showMenu(void) {
 }
 
 // Inserir um novo valor na lista em ordem alfabética
-void insert(LISTAPTR startPtr, char item) {
-    LISTA newPtr, prevPtr, currPtr;
+// A Lista é uma ligação para o primeiro elemento, ao passar
+// o endereço da lista cria um ponteiro para ponteiro
+void insert(LISTNODEPTR *startPtr, char item) {
+    LISTNODEPTR newPtr, prevPtr, currPtr;
 
-    newPtr = malloc(sizeof(struct listaNo));  // aloca memória
+    newPtr = malloc(sizeof(LISTNODE));  // aloca memória
 
+    // se foi alocado memória
     if (newPtr != NULL) {
-        newPtr->data = item;
-        newPtr->prox = NULL;
+        newPtr->data = item; // atribui o item ao campo data
+        newPtr->prox = NULL; // indica que o novo nó não aponta para lugar nenhum
 
-        prevPtr = NULL;
-        currPtr = *startPtr;
+        // Ponteiros utilizados para armazenar os locais do nó antes e depois do ponto de inserção
+        prevPtr = NULL; // previous (anterior)
+        currPtr = *startPtr; // current (atual); ponteiro para o início da lista
 
+        // Verifica se currPtr é diferente de NULL e se o item (valor) é maior que o item atual de currPtr
         while (currPtr != NULL && item > currPtr->data) {
-            prevPtr = currPtr;
-            currPtr = currPtr->prox;
+            prevPtr = currPtr; // atribui o atual para o anterior
+            currPtr = currPtr->prox; // atribui o proximo para o atual
         }
 
-        if (prevPtr == NULL) {  // Inserção no início
+        // Insere o novo nó no início
+        if (prevPtr == NULL) {
             newPtr->prox = *startPtr;
             *startPtr = newPtr;
         } else {
@@ -100,8 +107,8 @@ void insert(LISTAPTR startPtr, char item) {
 }
 
 // Remove um item da lista
-char delete(LISTAPTR startPtr, char item) {
-    LISTA currPtr, prevPtr, tempPtr;
+char delete(LISTNODEPTR *startPtr, char item) {
+    LISTNODEPTR currPtr, prevPtr, tempPtr;
 
     if (*startPtr == NULL)
         return '\0';
@@ -132,11 +139,11 @@ char delete(LISTAPTR startPtr, char item) {
 }
 
 // Retorna 1 se a lista está vazia, 0 caso contrário
-int isEmpty(LISTA startPtr) {
-    return startPtr == NULL;
+int isEmpty(LISTNODEPTR startPtr) {
+    return startPtr == NULL; // 1 vazio
 }
 
-void printLista(LISTA currPtr) {
+void printList(LISTNODEPTR currPtr) {
     if (currPtr == NULL) {
         printf("Lista vazia!\n\n");
     } else {
