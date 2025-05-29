@@ -82,10 +82,13 @@ void textFile(FILE *lePtr) {
     if ((gravaPtr = fopen("contas.txt", "w")) == NULL) {
         printf("O arquivo nao pode ser aberto!\n");
     } else {
-        rewind(lePtr);
+        rewind(lePtr);  // posiciona o ponteiro de leitura no inicio do arquivo binário (byte 0)
+        // Define o cabeçalho no novo arquivo txt
         fprintf(gravaPtr, "%-6s%-16s%-11s%-10s\n", "Conta", "Nome", "Sobrenome", "Saldo");
 
-        while (fread(&cliente, sizeof(struct dadosCliente), 1, lePtr) == 1) {
+        // Lê os registros do binário e escreve no arquivo txt
+        // ponteiro para onde será armazenado; tamanho do item a ser lido; item a ser lido; ponteiro para o arquivo
+        while (fread(&cliente, sizeof(struct dadosCliente), 1, lePtr) == 1) {  // registro lido
             if (cliente.numConta != 0) {
                 fprintf(gravaPtr, "%-6d%-16s%-11s%10.2f\n",
                         cliente.numConta, cliente.nome, cliente.sobrenome, cliente.saldo);
@@ -103,7 +106,9 @@ void new(FILE *fPtr) {
     printf("Insira o numero da nova conta (1 - 100): ");
     scanf("%d", &numConta);
 
+    // Ponteiro para arquivo; deslocamento em bytes (posição); origem do deslocamento (inicio byte 0)
     fseek(fPtr, (numConta - 1) * sizeof(struct dadosCliente), SEEK_SET);
+    // Ponteiro para onde os dados lidos serão armazenados; tamanho em byte de cada item; n de item; ptr de onde será lido
     fread(&cliente, sizeof(struct dadosCliente), 1, fPtr);
 
     if (cliente.numConta != 0) {
