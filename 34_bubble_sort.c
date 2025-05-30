@@ -14,7 +14,7 @@ int main() {
 
   bubbleSort(arr, size);
 
-  printf("Array ordenado: \n");
+  printf("\nArray ordenado: \n");
   for (int i = 0; i < size; i++)
     printf("%d ", arr[i]);
 

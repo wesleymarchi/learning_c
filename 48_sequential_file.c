@@ -27,7 +27,6 @@ int main() {
 
   printf("Digite a conta, o nome e o saldo.\n");
   printf("Use Ctrl+D (Linux/Mac) ou Ctrl+Z (Windows) para encerrar.\n");
-  printf("? ");
 
   // Loop de leitura segura usando scanf
   while (scanf("%d %39s %f", &conta, nome, &saldo) == 3) {
