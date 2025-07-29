@@ -14,7 +14,7 @@ int main() {
     struct dadosCliente clienteNulo = {0 , "", "", 0.0};
     FILE *cfPtr;
 
-    if ((cfPtr = fopen("credito.dat", "w")) == NULL) {
+    if ((cfPtr = fopen("credito.dat", "wb")) == NULL) {
         printf("O arquivo nao pode ser aberto\n");
     } else {
         for (i = 1; i <= 100; i++)  // 100 registros de clientes: 100 * sizeof(struct dadosCliente)

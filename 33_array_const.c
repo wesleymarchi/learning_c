@@ -16,5 +16,5 @@ int main() {
 
 void tryModify(const int arr[]) {
   for (int i = 0; i < 3; i++)
-    arr[i] /= 2; // erro
+    arr[i] /= 2;
 }

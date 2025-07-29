@@ -13,7 +13,7 @@ int main() {
     for (int i = 0; i < LINE; i++) {
         for (int j = 0; j < COLUNM; j++) {
             printf("Elemento [%d][%d]: ", i, j);
-            scanf("%d", matrix[i][j]);
+            scanf("%d", &matrix[i][j]);
         }
     }
 
