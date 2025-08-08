@@ -14,7 +14,7 @@ int main() {
 
     division = (float) x / y;   // Operador de coersão/conversão
 
-    printf("Resultado da divisao inteira: %f\n", division);
+    printf("Resultado da divisao inteira: %.2f\n", division);
 
     return 0;
 }

@@ -10,14 +10,14 @@ int main() {
     total = 0;
     k = 0;
 
-    printf("Digite uma nota:\n");
+    printf("Digite uma nota (-1 para encerrar):\n");
     scanf("%d", &nota);
 
     while (nota != -1) {    // nota (-1) representa o sentinela/dummy/flag
         total += nota;
         k++;
 
-        printf("Digite uma nota:\n");
+        printf("Digite uma nota (-1 para encerrar):\n");
         scanf("%d", &nota);
     }
 
