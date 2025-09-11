@@ -7,7 +7,7 @@ int main() {
 
     do {
       printf("%d\n", k);
-    } while (k++ < 5);
+    } while (++k < 5);
 
     return 0;
 }

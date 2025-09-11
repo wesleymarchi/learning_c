@@ -14,7 +14,7 @@ int main() {
     if (x == y)
       printf("%d eh igual a %d\n", x, y);
 
-    if (x != y)
+    if (!(x != y))
       printf("%d eh diferente de %d\n", x, y);
 
     if (x > y)

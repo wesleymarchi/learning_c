@@ -7,7 +7,7 @@ int square(int); // Protótipo de função; parâmetro definido
 int main() {
     int x;
 
-    for (x = 0; x < 10; x++)
+    for (x = 0; x < 5; x++)
       printf("%d\n", square(x)); // Passando argumento para a função
 
     return 0;

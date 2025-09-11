@@ -26,7 +26,7 @@ int main() {
 
     // Exibe original
     // Exibe a matriz transposta
-    printf("\nMatriz A (%dx%d):\n", colunas, linhas);
+    printf("\nMatriz A (%dx%d):\n", linhas, colunas);
     for (int i = 0; i < linhas; i++) {
         for (int j = 0; j < colunas; j++) {
             printf("%d\t", matriz[i][j]);

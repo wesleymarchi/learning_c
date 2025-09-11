@@ -44,6 +44,6 @@ void b(void) {
 
 void c(void) {
     printf("\nx global eh %d ao entrar em c\n", x);
-    x *= 10;
+    x += 10;
     printf("x global eh %d ao sair de c\n", x);
 }

@@ -11,7 +11,7 @@ int main() {
     for (int i = 0; i < SIZE; i++) // Inicializa os elementos do array com pares de 2 a 20
         n[i] = 2 + 2 * i;
 
-    printf("%s%13s\n", "Elemento", "Valor");
+    printf("%s%13s\n", "Indice", "Valor");
 
     for (int i = 0; i < SIZE; i++)
         printf("%8d%13d\n", i, n[i]);

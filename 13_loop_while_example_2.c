@@ -7,7 +7,7 @@ int main() {
 
     while (k <= 5) {
       printf("%d\n", k);
-      ++k; // Operador de pré-incremento
+      k++; // Operador de pré-incremento
     }
 
     return 0;

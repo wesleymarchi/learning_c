@@ -10,7 +10,7 @@ int main() {
         n[i] = i + 1; // Atribuição de um valor para uma determinada posição do array
     }
 
-    printf("%s%13s\n", "Elemento", "Valor");
+    printf("%s%14s\n", "Indice", "Valor");
 
     for (i = 0; i < 10; i++)
         printf("%7d%13d\n", i, n[i]);
