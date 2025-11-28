@@ -66,7 +66,7 @@ void insertNode(TREENODEPTR *treePtr, int value) {
     } else if (value > (*treePtr)->data) {
         insertNode(&((*treePtr)->rightPtr), value);
     } else {
-        printf("dub");
+        printf(" dub");
     }
 }
 
