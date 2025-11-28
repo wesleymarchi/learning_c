@@ -14,6 +14,6 @@ int main() {
 }
 
 /* Definição da função */
-int square(int x) {
-  return x * x;
+int square(int value) {
+  return value * value;
 }

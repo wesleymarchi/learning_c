@@ -4,16 +4,18 @@
 int cuboPorValor(int);
 
 int main() {
-    int n = 5;
+	int n = 5;
+	int c;
 
-    printf("O valor original do numero eh %d\n", n);
+	printf("O valor original do numero eh %d\n", n);
+	c = cuboPorValor(n);
 
-    n = cuboPorValor(n);  // Valor/cópia
-    printf("O novo valor do numero eh %d\n", n);
+	printf("O novo valor do numero eh %d\n", n);
+	printf("Quem eh C? %d", c);
 
-    return 0;
+	return 0;
 }
 
 int cuboPorValor(int n) {
-    return n * n * n;
+	return n * n * n;
 }

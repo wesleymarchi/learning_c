@@ -1,4 +1,4 @@
-/*  Demonstrando a diferença entre um array statico e não estatico
+/*  Demonstrando a diferença entre um array estatico e não estatico
  *
  * */
 
@@ -19,7 +19,7 @@ int main() {
     return 0;
 }
 
-/* Função com array statico */
+/* Função com array estatico */
 void staticArrayInit(void) {
     static int a[3]; // inicializada com zeros pelo compilador
     int i;

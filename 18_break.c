@@ -10,7 +10,7 @@ int main() {
 
     for (k = 1; k <= 5; k++) {
       if (k == 3)
-        continue; // altere para break/continue e veja a diferença
+        break; // altere para break/continue e veja a diferença
 
       printf("%d\n", k);
     }

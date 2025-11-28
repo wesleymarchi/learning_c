@@ -3,15 +3,15 @@
 #include <stdio.h>
 
 #define LINE 3
-#define COLUNM 3
+#define COLUMN 3
 
 int main() {
-    int matrix[LINE][COLUNM];
+    int matrix[LINE][COLUMN];
 
     // Preenchendo a matriz com valores do usuário
-    printf("Digite os elementos da matriz %dx%d:\n", LINE, COLUNM);
+    printf("Digite os elementos da matriz %dx%d:\n", LINE, COLUMN);
     for (int i = 0; i < LINE; i++) {
-        for (int j = 0; j < COLUNM; j++) {
+        for (int j = 0; j < COLUMN; j++) {
             printf("Elemento [%d][%d]: ", i, j);
             scanf("%d", &matrix[i][j]);
         }
@@ -20,7 +20,7 @@ int main() {
     // Exibindo a matriz
     printf("\nMatriz inserida:\n");
     for (int i = 0; i < LINE; i++) {
-        for (int j = 0; j < COLUNM; j++) {
+        for (int j = 0; j < COLUMN; j++) {
             printf("%d\t", matrix[i][j]);
         }
         printf("\n");

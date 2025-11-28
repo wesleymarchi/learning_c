@@ -29,23 +29,31 @@ int main() {
     while (op != 3) {
         switch (op) {
             case 1:
-                printf("Enter an char: ");
+                printf("Enter a char: ");
                 scanf(" %c", &item);
-                enqueue(&headPtr, tailPtr, item);
+
+                // CORREÇÃO: passar &tailPtr
+                enqueue(&headPtr, &tailPtr, item);
+
                 printQueue(headPtr);
                 break;
+
             case 2:
                 if (!isEmpty(headPtr)) {
                     item = dequeue(&headPtr, &tailPtr);
-                    printf("%c dequeue.\n", item);
+                    printf("%c dequeued.\n", item);
                     printQueue(headPtr);
-                    break;
+                } else {
+                    printf("Queue is empty.\n");
                 }
+                break;
+
             default:
                 printf("Invalid option.\n\n");
-                showMenu();
                 break;
         }
+
+        showMenu();
         printf("Enter an option: ");
         scanf("%d", &op);
     }
@@ -54,46 +62,44 @@ int main() {
 }
 
 void showMenu(void) {
-    printf("Enter an option:\n"
+    printf("\nEnter an option:\n"
            "1. Enqueue\n"
            "2. Dequeue\n"
            "3. Quit\n");
 }
 
 void enqueue(QUEUENODEPTR *headPtr, QUEUENODEPTR *tailPtr, char item) {
-    QUEUENODEPTR newPtr;
-
-    newPtr = malloc(sizeof(QUEUENODE));
+    QUEUENODEPTR newPtr = malloc(sizeof(QUEUENODE));
 
     if (newPtr != NULL) {
         newPtr->data = item;
         newPtr->next = NULL;
 
+        // CORREÇÃO: atualizar tailPtr quando a fila está vazia
         if (isEmpty(*headPtr)) {
             *headPtr = newPtr;
+            *tailPtr = newPtr;
         } else {
             (*tailPtr)->next = newPtr;
             *tailPtr = newPtr;
         }
     } else {
-        printf("No se enough space to allocate.\n");
+        printf("Not enough space to allocate.\n");
     }
 }
 
 char dequeue(QUEUENODEPTR *headPtr, QUEUENODEPTR *tailPtr) {
-    QUEUENODEPTR tempPtr;
-    char item;
+    QUEUENODEPTR tempPtr = *headPtr;
+    char item = tempPtr->data;
 
-    item = (*headPtr)->data;
-    tempPtr = *headPtr;
     *headPtr = (*headPtr)->next;
 
+    // CORREÇÃO: quando a fila fica vazia, tail deve virar NULL
     if (*headPtr == NULL) {
-        tailPtr = NULL;
+        *tailPtr = NULL;
     }
 
     free(tempPtr);
-
     return item;
 }
 
@@ -105,12 +111,11 @@ void printQueue(QUEUENODEPTR currentPtr) {
     if (currentPtr == NULL) {
         printf("Queue is empty.\n");
     } else {
-        printf("Queue: \n");
-
+        printf("Queue: ");
         while (currentPtr != NULL) {
-            printf("%c-->", currentPtr->data);
+            printf("%c --> ", currentPtr->data);
             currentPtr = currentPtr->next;
         }
-        printf("\n");
+        printf("NULL\n");
     }
 }

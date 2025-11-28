@@ -8,7 +8,7 @@
 int main() {
   char arr[5];
 
-  printf("    arr = %p\n&arr[0] = %p\n", arr, &arr[0]); // arr[0] contém o endereço do array
+  printf("    arr = %p\n&arr[0] = %p\n", arr, &arr[1]); // arr[0] contém o endereço do array
 
   return 0;
 }
